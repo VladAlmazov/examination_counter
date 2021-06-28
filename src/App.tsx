@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {Display} from './Display';
+import {Buttons} from './Buttons';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [value, setResult] = useState<number>(0)
+
+    const incrementValue = () => {
+        if (value !== 5) {
+            setResult(value + 1)
+        }
+    }
+
+    const decrementValue = () => {
+        setResult(0)
+    }
+
+    return (
+        <div className="wrapper">
+            <Display value={value}/>
+            <Buttons
+                incrementValue={incrementValue}
+                decrementValue={decrementValue}
+                disabledInc={value === 5}
+                disabledRes={value === 0}
+            />
+        </div>
+    );
 }
 
 export default App;

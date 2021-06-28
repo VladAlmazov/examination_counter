@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+.wrapper {
+    text-align: center;
+    border: 3px solid aqua;
+    position: absolute; top: 350px; left: 860px;
+    padding-bottom: 10px;
+    background-color: darkslategray;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.input-wrapper {
+    text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input-item {
+    width: 150px;
+    text-align: center;
+    font-size: 35px;
+    padding: 15px;
+    margin: 10px 10px 5px 10px;
+    background-color: aqua;
+    border-radius: 5px;
+    border: 3px solid aqua;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.button-item {
+    border-radius: 10px;
+    background-color: aqua;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+    font-weight: bolder;
+    border: 3px solid aqua;
 }
 
-.App-link {
-  color: #61dafb;
+.button-wrapper {
+    border: 3px solid aqua;
+    border-radius: 5px;
+    width: 180px;
+    margin-left: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.max-number {
+    width: 150px;
+    text-align: center;
+    font-size: 35px;
+    padding: 15px;
+    margin: 10px 10px 5px 10px;
+    background-color: aqua;
+    border-radius: 5px;
+    color: red;
+    font-weight: bold;
+    border: 3px solid aqua;
 }
