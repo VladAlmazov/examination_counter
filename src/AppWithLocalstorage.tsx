@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import './App.css';
+import './App.module.css';
 import styles from './AppWithLocalstorage.module.css'
 
 export function AppWithLocalstorage() {

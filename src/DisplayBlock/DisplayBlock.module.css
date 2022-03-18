@@ -1,16 +1,16 @@
-.wrapper {
+.displayWrapper {
     text-align: center;
     border: 3px solid aqua;
-    position: absolute; top: 350px; left: 860px;
     padding-bottom: 10px;
     background-color: darkslategray;
+    margin: 5px;
 }
 
-.input-wrapper {
+.inputWrapper {
     text-align: center;
 }
 
-.input-item {
+.inputItem {
     width: 150px;
     text-align: center;
     font-size: 35px;
@@ -21,7 +21,7 @@
     border: 3px solid aqua;
 }
 
-.button-item {
+.buttonItem {
     border-radius: 10px;
     background-color: aqua;
     text-align: center;
@@ -32,14 +32,14 @@
     border: 3px solid aqua;
 }
 
-.button-wrapper {
+.buttonWrapper {
     border: 3px solid aqua;
     border-radius: 5px;
     width: 180px;
     margin-left: 10px;
 }
 
-.max-number {
+.maxNumber {
     width: 150px;
     text-align: center;
     font-size: 35px;

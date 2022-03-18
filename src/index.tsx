@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import {AppWithLocalstorage} from './AppWithLocalstorage';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppWithLocalstorage />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

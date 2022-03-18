@@ -1,14 +1,19 @@
 import React, {useState} from 'react';
-import './App.css';
-import {Display} from './Display';
-import {Buttons} from './Buttons';
+import s from './DisplayBlock/DisplayBlock.module.css';
+import {Display} from './DisplayBlock/Display';
+import {Buttons} from './DisplayBlock/Buttons';
+import {SettingsBlock} from './SettingsBlock/SettingsBlock';
+import style from './App.module.css'
+
+export type DisplayValuesType = number | string
+
 
 function App() {
 
-    const [value, setResult] = useState<number>(0)
+    const [value, setResult] = useState<DisplayValuesType>(0)
 
     const incrementValue = () => {
-        if (value !== 5) {
+        if (value !== 5 && typeof value === 'number') {
             setResult(value + 1)
         }
     }
@@ -18,14 +23,19 @@ function App() {
     }
 
     return (
-        <div className="wrapper">
-            <Display value={value}/>
-            <Buttons
-                incrementValue={incrementValue}
-                decrementValue={decrementValue}
-                disabledInc={value === 5}
-                disabledRes={value === 0}
-            />
+        <div className={style.appWrapper}>
+            <div>
+                <SettingsBlock setResult={setResult}/>
+            </div>
+            <div className={s.displayWrapper}>
+                <Display value={value}/>
+                <Buttons
+                    incrementValue={incrementValue}
+                    decrementValue={decrementValue}
+                    disabledInc={value === 5}
+                    disabledRes={value === 0}
+                />
+            </div>
         </div>
     );
 }
