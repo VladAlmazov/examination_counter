@@ -4,3 +4,13 @@
     align-items: center;
     height: 100vh;
 }
+
+.commonWrapper {
+    width: auto;
+    height: 200px;
+    text-align: center;
+    border: 3px solid aqua;
+    padding: 10px;
+    background-color: darkslategray;
+    margin: 5px;
+}

@@ -1,59 +1,90 @@
 import s from './SettingsBlock.module.css'
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useEffect} from 'react';
 import {Button} from './Button';
 import {DisplayValuesType} from '../App';
+import styles from '../App.module.css'
 
 type SettingsPropsType = {
     setResult: (value: DisplayValuesType) => void
+    startValue: number
+    setStartValue: (number: number) => void
+    maxValue: number
+    setMaxValue: (number: number) => void
+    disable: boolean
+    setDisableSettingsButton: (disable: boolean) => void
+    setDisableIncButton: (disable: boolean) => void
+    setDisableResetButton: (disable: boolean) => void
 }
 
 export const SettingsBlock = (props: SettingsPropsType) => {
 
-    const [minValue, setMinValue] = useState(0)
-    const [maxValue, setMaxValue] = useState(0)
-    const [disable, setDisable] = useState(false)
+    useEffect(() => {
+        if (props.startValue === props.maxValue
+            || props.maxValue < props.startValue
+            || props.startValue < 0
+            || props.maxValue < 0) {
+            props.setResult('Incorrect value')
+            props.setDisableSettingsButton(true)
+            props.setDisableResetButton(true)
+        }
+    })
 
-    const setToLocalStorageHandler = () => {
-        localStorage.setItem('maxValue', JSON.stringify(maxValue))
-        localStorage.setItem('minValue', JSON.stringify(minValue))
-        props.setResult(minValue)
+    const setToDisplayHandler = () => {
+        props.setResult(props.startValue)
+        props.setDisableIncButton(false)
+        props.setDisableSettingsButton(true)
     }
 
     const maxValueOnChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setMaxValue(+e.currentTarget.value)
+        if (props.maxValue >= 0) {
+            props.setMaxValue(+e.currentTarget.value)
+            props.setResult(`Enter values and press 'set'`)
+            props.setDisableSettingsButton(false)
+            props.setDisableResetButton(true)
+        } else {
+            props.setMaxValue(+e.currentTarget.value)
+            props.setResult('Incorrect value')
+            props.setDisableSettingsButton(true)
+            props.setDisableResetButton(true)
+        }
     }
     const minValueOnChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        if (+e.currentTarget.value < 0) {
-            props.setResult('Incorrect value')
-            setDisable(true)
-        } else {
-            setMinValue(+e.currentTarget.value)
+        if (props.startValue >= -1) {
+            props.setStartValue(+e.currentTarget.value)
             props.setResult(`Enter values and press 'set'`)
-            setDisable(false)
+            props.setDisableSettingsButton(false)
+            props.setDisableResetButton(true)
+        } else {
+            props.setStartValue(+e.currentTarget.value)
+            props.setResult('Incorrect value')
+            props.setDisableSettingsButton(true)
+            props.setDisableResetButton(true)
         }
     }
 
     return (
-        <div className={s.settingsWrapper}>
+        <div className={styles.commonWrapper}>
             <div className={s.spanWrapper}>
                 <span className={s.span}> Max value:</span>
 
                 <input type="number"
-                       className={s.input}
-                       defaultValue={maxValue}
+                       min={-1}
+                       className={props.maxValue === -1 ? s.error : s.input}
+                       value={props.maxValue}
                        onChange={maxValueOnChangeHandler}
                 />
                 <br/>
-                <span className={s.span}> Min value:</span>
+                <span className={s.span}> Start value:</span>
 
                 <input type="number"
-                       className={s.input}
-                       defaultValue={minValue}
+                       min={-1}
+                       className={props.startValue === -1 ? s.error : s.input}
+                       value={props.startValue}
                        onChange={minValueOnChangeHandler}
                 />
                 <br/>
             </div>
-            <Button setToLocalStorage={setToLocalStorageHandler} disable={disable}/>
+            <Button setToLocalStorage={setToDisplayHandler} disable={props.disable}/>
         </div>
     )
 }

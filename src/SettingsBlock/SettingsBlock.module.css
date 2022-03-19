@@ -1,15 +1,5 @@
-.settingsWrapper {
-    width: auto;
-    height: 157px;
-    text-align: center;
-    border: 3px solid aqua;
-    padding: 10px;
-    background-color: darkslategray;
-    margin: 5px;
-}
-
 .spanWrapper {
-    width: 250px;
+    width: 300px;
     border: 2px solid aqua;
     border-radius: 5px;
     padding: 5px;
@@ -22,32 +12,59 @@
     border: 3px solid aqua;
     border-radius: 5px;
     margin: 5px;
-    width: 80px;
+    width: 40%;
     text-align: center;
+    outline: none;
+    background-color: aqua;
+    font-size: 18px;
+}
+
+.input::selection {
+    background-color: aqua;
 }
 
 .span {
-    width: 102px;
-    padding: 5px;
-    font-size: 18px;
+    width: 40%;
+    padding: 10px;
+    font-size: 20px;
     font-weight: bold;
 }
 
+.buttonWrapper {
+    width: auto;
+    border: 2px solid aqua;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
 .buttonItem {
+    width: 50%;
     border-radius: 10px;
     background-color: aqua;
     text-align: center;
-    font-size: 16px;
+    font-size: 20px;
     padding: 10px;
     margin: 10px;
     font-weight: bolder;
     border: 3px solid aqua;
 }
 
-.buttonWrapper {
-    width: 250px;
-    border: 2px solid aqua;
+.buttonItem:hover {
+    background-color: deepskyblue;
+}
+
+.error {
+    border: 3px solid red;
     border-radius: 5px;
-    padding: 5px;
-    margin-top: 2px;
+    margin: 5px;
+    width: 40%;
+    text-align: center;
+    background-color: crimson;
+    outline: red;
+    font-size: 18px;
+}
+
+.error::selection {
+    background-color: crimson;
 }
